@@ -1,0 +1,30 @@
+.add-services {
+    background-color: #0f0e17;
+    padding: 40px;
+}
+.add-services h2 {
+    color: #fffffe;
+    margin-bottom: 20px;
+}
+.add-services h2 span {
+    color: #ff9012;
+}
+.add-services form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.add-services form input,
+textarea {
+    text-align: center;
+    width: 40%;
+    margin: 8px;
+    padding: 8px;
+    background-color: black;
+    color: #fffffe;
+    border-radius: 20px;
+    border: 2px solid #ff9012;
+}
+.submit-form:hover {
+    background-color: #ff9012;
+}

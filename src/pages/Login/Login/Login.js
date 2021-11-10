@@ -6,7 +6,7 @@ import useAuth from "../../../hooks/useAuth";
 import { Col, Container, Form, Row } from "react-bootstrap";
 
 const Login = () => {
-    const { signInWithGoogle } = useAuth();
+    const { handleUserLogin, signInWithGoogle } = useAuth();
     const [loginData, setLoginData] = useState({});
 
     const location = useLocation();
@@ -20,7 +20,7 @@ const Login = () => {
         setLoginData(newLoginData);
     };
     const handleLoginSubmit = (e) => {
-        // loginUser(loginData.email, loginData.password, location, history);
+        handleUserLogin(loginData.email, loginData.password, location, history);
         e.preventDefault();
     };
 

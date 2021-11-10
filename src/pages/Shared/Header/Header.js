@@ -23,7 +23,7 @@ const Header = () => {
                                 explore
                             </Nav.Link>
                             {user?.email && (
-                                <Nav.Link as={Link} to="#">
+                                <Nav.Link as={Link} to="/dashboard">
                                     Dashboard
                                 </Nav.Link>
                             )}

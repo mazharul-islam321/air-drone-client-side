@@ -5,6 +5,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import AuthProvider from "./context/AuthProvider/AuthProvider";
 import Login from "./pages/Login/Login/Login";
 import Register from "./pages/Login/Register/Register";
+import Dashboard from "./pages/DashboardPage/Dashboard/Dashboard";
 
 function App() {
     return (
@@ -22,6 +23,9 @@ function App() {
                     </Route>
                     <Route path="/register">
                         <Register></Register>
+                    </Route>
+                    <Route path="/dashboard">
+                        <Dashboard></Dashboard>
                     </Route>
                     <Route path="*">
                         <NotFound></NotFound>
