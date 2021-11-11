@@ -1,0 +1,8 @@
+.banner-img {
+    background-image: url(https://i.ibb.co/6JBR70K/photo-1506947411487-a56738267384-ixid-Mnwx-Mj-A3f-DB8-MHxz-ZWFy-Y2h8-Nnx8-ZHJvbm-Vzf-GVuf-DB8f-DB8f.jpg);
+    background-size: 100% 100%;
+    height: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

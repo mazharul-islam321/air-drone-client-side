@@ -6,6 +6,8 @@ import AuthProvider from "./context/AuthProvider/AuthProvider";
 import Login from "./pages/Login/Login/Login";
 import Register from "./pages/Login/Register/Register";
 import Dashboard from "./pages/DashboardPage/Dashboard/Dashboard";
+import ExploreProduct from "./pages/ExploreProduct/ExploreProduct/ExploreProduct";
+import PlaceOrder from "./pages/HomePage/PlaceOrderPage/PlaceOrder/PlaceOrder";
 
 function App() {
     return (
@@ -17,6 +19,12 @@ function App() {
                     </Route>
                     <Route path="/home">
                         <Home></Home>
+                    </Route>
+                    <Route path="/explore">
+                        <ExploreProduct></ExploreProduct>
+                    </Route>
+                    <Route path="/placeorder/:id">
+                        <PlaceOrder></PlaceOrder>
                     </Route>
                     <Route path="/login">
                         <Login></Login>
