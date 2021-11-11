@@ -15,6 +15,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
@@ -23,8 +24,11 @@ const useFirebase = () => {
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
-                // saveUser(user.email, user.displayName, "PUT");
+                // console.log(user);
+
+                // save user to the database
+                saveUser(user.email, user.displayName, "PUT");
+
                 setError("");
                 const destination = location?.state?.from || "/";
                 history.replace(destination);
@@ -44,6 +48,9 @@ const useFirebase = () => {
                 const newUser = { email, displayName: name };
                 setUser(newUser);
 
+                // save user to the database
+                saveUser(email, name, "POST");
+
                 // set name after register
                 updateProfile(auth.currentUser, {
                     displayName: name,
@@ -51,7 +58,6 @@ const useFirebase = () => {
                     .then(() => {})
                     .catch((error) => {});
                 history.replace("/");
-                console.log(results.user);
             })
             .catch((error) => {
                 setError(error.message);
@@ -87,6 +93,13 @@ const useFirebase = () => {
         return () => unsubscribe;
     }, [auth]);
 
+    // for admin
+    useEffect(() => {
+        fetch(`http://localhost:4000/users/${user.email}`)
+            .then((res) => res.json())
+            .then((data) => setAdmin(data.admin));
+    }, [user.email]);
+
     // user logout
     const logOut = () => {
         setLoading(true);
@@ -99,9 +112,20 @@ const useFirebase = () => {
             })
             .finally(() => setLoading(false));
     };
-
+    // save user to database
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName };
+        fetch("http://localhost:4000/users", {
+            method: method,
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+        }).then();
+    };
     return {
         user,
+        admin,
         handleUserRegister,
         signInWithGoogle,
         logOut,

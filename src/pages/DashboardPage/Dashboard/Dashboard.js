@@ -18,7 +18,7 @@ import Pay from "../Pay/Pay";
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
-    const { logOut } = useAuth();
+    const { admin, logOut } = useAuth();
     return (
         <div>
             <h2>this is dashboard page</h2>
@@ -52,7 +52,7 @@ const Dashboard = () => {
                         <Nav.Link as={Link} to={`${url}/manageproduct`}>
                             Manage Product
                         </Nav.Link>
-                        <Button oonClick={logOut}>LogOut</Button>
+                        <Button onClick={logOut}>LogOut</Button>
                     </Nav>
                 </Col>
                 <Col xs={12} md={10}>

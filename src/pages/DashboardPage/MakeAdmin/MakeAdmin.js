@@ -2,12 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 // reset
 const MakeAdmin = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
-        console.log(data);
-        /* const uri = `https://dark`;
-        fetch(uri, {
-            method: "POST",
+        // console.log(data);
+        fetch("http://localhost:4000/users/admin", {
+            method: "PUT",
             headers: {
                 "content-type": "application/json",
             },
@@ -15,19 +14,20 @@ const MakeAdmin = () => {
         })
             .then((res) => res.json())
             .then((data) => {
-                if (data.insertedId) {
-                    alert("added successfullay");
-                    reset();
+                if (data.modifiedCount) {
+                    console.log(data);
+                    // setSuccess(true);
                 }
-            }); */
+            });
+        reset();
     };
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
-                    {...register("name")}
+                    {...register("email")}
                     type="email"
-                    placeholder="Place Name"
+                    placeholder="Email"
                     required
                 />
                 <input type="submit" value="submit" className="submit-form" />

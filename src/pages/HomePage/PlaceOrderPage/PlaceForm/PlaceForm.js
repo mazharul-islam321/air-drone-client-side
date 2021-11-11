@@ -28,7 +28,6 @@ const PlaceForm = (props) => {
     }, [props, reset, user]);
     return (
         <div>
-            <h4>{name}</h4>
             <h2>
                 this is place form page. herer will show a form for submit order
             </h2>
@@ -49,8 +48,17 @@ const PlaceForm = (props) => {
                     defaultValue={user?.displayName}
                 />
                 <input {...register("email")} defaultValue={user?.email} />
-                <input {...register("address")} />
-                <input type="number" {...register("phone")} />
+                <input
+                    {...register("address")}
+                    placeholder="your address"
+                    required
+                />
+                <input
+                    type="number"
+                    {...register("phone")}
+                    placeholder="your number"
+                    required
+                />
                 <input type="submit" />
             </form>
         </div>

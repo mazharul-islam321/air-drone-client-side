@@ -15,7 +15,7 @@ const Register = () => {
             return;
         }
         handleUserRegister(data.email, data.password, data.name, history);
-        console.log(data);
+        // console.log(data);
     };
 
     return (
