@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import "./MakeAdmin.css";
 // reset
 const MakeAdmin = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -22,8 +23,12 @@ const MakeAdmin = () => {
         reset();
     };
     return (
-        <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="admin-form">
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="w-50 mx-auto for-shadow py-3"
+            >
+                <h2 className="text-center">Make an Admin</h2>
                 <input
                     {...register("email")}
                     type="email"

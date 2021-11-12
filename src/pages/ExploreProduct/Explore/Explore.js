@@ -17,30 +17,30 @@ const Explore = () => {
     }, []);
     // setIsLoading
     return (
-        <div>
-            <h2>this is drone page</h2>
+        <div className="products-style">
+            <h1 className="text-center">Explore All Product</h1>
             <Container>
                 <Row xs={1} md={2} lg={3} className="g-4">
                     {drones.map((drone) => (
                         <Col key={drone._id}>
-                            <Card className="card-style">
+                            <Card className="products-card-style">
                                 <Card.Img
                                     variant="top"
                                     src={drone.img}
-                                    className="card-img"
+                                    className="products-card-img"
                                 />
                                 <Card.Body>
-                                    <Card.Title className="card-title">
+                                    <Card.Title className="products-card-title">
                                         {drone.name}
                                     </Card.Title>
-                                    <Card.Text className="card-para">
+                                    <Card.Text className="products-card-para">
                                         {drone.description.slice(0, 80)}...
                                     </Card.Text>
-                                    <Card.Text className="card-para">
+                                    <Card.Text className="products-card-para">
                                         ${drone.price}
                                     </Card.Text>
                                     <Link to={`/placeorder/${drone._id}`}>
-                                        <button className="card-button">
+                                        <button className="products-card-button">
                                             Book Now
                                         </button>
                                     </Link>

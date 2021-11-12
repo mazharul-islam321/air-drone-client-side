@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import useAuth from "../../../hooks/useAuth";
+import "./MyOrders.css";
 
 const MyOrders = () => {
     const { user } = useAuth();
@@ -34,20 +35,24 @@ const MyOrders = () => {
         }
     };
     return (
-        <div className="my-booking-style">
-            <h1>
-                this is <span className="information">my order page</span>
-            </h1>
+        <div className="products-style">
+            <h1 className="text-center">My Order</h1>
             <Container>
-                <Row xs={1} md={2} className="g-4">
+                <Row xs={1} md={3} className="g-4">
                     {myOrder.map((order) => (
                         <Col key={order?._id}>
-                            <div className="my-booking-card">
+                            <div className="products-card-style">
                                 <div>
-                                    <img src={order?.img} alt="" />
+                                    <img
+                                        src={order?.img}
+                                        alt=""
+                                        className="products-card-img"
+                                    />
                                 </div>
                                 <div>
-                                    <h4>{order?.name}</h4>
+                                    <h4 className="products-card-title">
+                                        {order?.name}
+                                    </h4>
                                     <p>
                                         {order?.description}
                                         ...
@@ -57,6 +62,7 @@ const MyOrders = () => {
                                     <p>${order?.price}</p>
                                     <p>status: {order?.status}</p>
                                     <button
+                                        className="products-card-button"
                                         onClick={() => handleDelete(order?._id)}
                                     >
                                         cancle

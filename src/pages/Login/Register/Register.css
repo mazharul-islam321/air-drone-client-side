@@ -1,0 +1,27 @@
+.register-style {
+    background-color: #0a1931;
+}
+.box-shadows {
+    background-color: #fffffe;
+    box-shadow: rgba(170, 169, 169, 0.699) 0px 5px 10px;
+}
+.register-style h2 {
+    text-align: center;
+    margin: 15px 0;
+    color: #da0037;
+}
+.register-style form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.register-style form input {
+    text-align: center;
+    width: 60%;
+    margin: 6px;
+    padding: 8px;
+    background-color: #0a1931;
+    color: #fffffe;
+    border-radius: 20px;
+    border: 2px solid #da0037;
+}

@@ -55,35 +55,43 @@ const ManageAllOrder = () => {
             });
     };
     return (
-        <div className="ManageBooking">
-            <h2 className="manage-header">
-                Manage Your <span>order</span>
-            </h2>
+        <div className="products-style">
+            <h1 className="text-center">Manage Order</h1>
             <Container>
                 <Row xs={1} md={3} className="g-4">
                     {manageOrder.map((order) => (
                         <Col key={order?._id}>
-                            <Card className="managecard">
+                            <Card className="products-card-style">
                                 <Card.Img
                                     variant="top"
                                     src={order?.img}
-                                    className="manage-img"
+                                    className="products-card-img"
                                 />
                                 <Card.Body>
-                                    <Card.Title>{order?.userName}</Card.Title>
-                                    <h5>Drone: {order?.name}</h5>
-                                    <Card.Text>
+                                    <Card.Title className="products-card-title">
+                                        {order?.userName}
+                                    </Card.Title>
+                                    <h6 className="products-card-title">
+                                        Drone: {order?.name}
+                                    </h6>
+                                    <Card.Text className="products-card-para">
                                         {order?.description}
                                         ...
                                     </Card.Text>
-                                    <p>${order?.price}</p>
-                                    <p>status: {order?.status}</p>
+                                    <p className="products-card-para">
+                                        ${order?.price}
+                                    </p>
+                                    <p className="products-card-para">
+                                        status: {order?.status}
+                                    </p>
                                     <button
+                                        className="products-card-button"
                                         onClick={() => handleDelete(order?._id)}
                                     >
                                         delete
                                     </button>
                                     <button
+                                        className="products-card-button ms-3"
                                         onClick={() => handleUpdate(order?._id)}
                                     >
                                         {order?.status}

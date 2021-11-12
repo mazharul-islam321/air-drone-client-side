@@ -15,50 +15,57 @@ import ManageAllOrder from "../ManageAllOrder/ManageAllOrder";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import MyOrders from "../MyOrders/MyOrders";
 import Pay from "../Pay/Pay";
+import "./Dashboard.css";
 
 const Dashboard = () => {
     let { path, url } = useRouteMatch();
-    const { admin, logOut } = useAuth();
+    const { logOut } = useAuth();
     return (
         <div>
-            <h2>this is dashboard page</h2>
-            <Row>
+            <div className="bg-danger">
+                <h1 className="text-center">DASHBOARD</h1>
+            </div>
+            <Row className="w-100">
                 <Col xs={12} md={2}>
-                    <Nav>
-                        <Nav.Link as={Link} to="/">
-                            Home Page
-                        </Nav.Link>
-                        <Nav.Link as={Link} to={`${url}`}>
-                            Dashboard
-                        </Nav.Link>
-                        <Nav.Link as={Link} to={`${url}/pay`}>
-                            Payment Method
-                        </Nav.Link>
-                        <Nav.Link as={Link} to={`${url}/myorders`}>
-                            My Orders
-                        </Nav.Link>
-                        <Nav.Link as={Link} to={`${url}/review`}>
-                            Add Review
-                        </Nav.Link>
-                        <Nav.Link as={Link} to={`${url}/manageorder`}>
-                            Manage All Orders
-                        </Nav.Link>
-                        <Nav.Link as={Link} to={`${url}/addproduct`}>
-                            Add A Drone
-                        </Nav.Link>
-                        <Nav.Link as={Link} to={`${url}/makeadmin`}>
-                            Make Admin
-                        </Nav.Link>
-                        <Nav.Link as={Link} to={`${url}/manageproduct`}>
-                            Manage Product
-                        </Nav.Link>
-                        <Button onClick={logOut}>LogOut</Button>
-                    </Nav>
+                    <div className="bg-light shadow">
+                        <Nav>
+                            <Nav.Link as={Link} to="/">
+                                Home Page
+                            </Nav.Link>
+                            <Nav.Link as={Link} to={`${url}`}>
+                                Dashboard
+                            </Nav.Link>
+                            <Nav.Link as={Link} to={`${url}/pay`}>
+                                Payment Method
+                            </Nav.Link>
+                            <Nav.Link as={Link} to={`${url}/myorders`}>
+                                My Orders
+                            </Nav.Link>
+                            <Nav.Link as={Link} to={`${url}/review`}>
+                                Add Review
+                            </Nav.Link>
+                            <Nav.Link as={Link} to={`${url}/manageorder`}>
+                                Manage All Orders
+                            </Nav.Link>
+                            <Nav.Link as={Link} to={`${url}/addproduct`}>
+                                Add A Drone
+                            </Nav.Link>
+                            <Nav.Link as={Link} to={`${url}/makeadmin`}>
+                                Make Admin
+                            </Nav.Link>
+                            <Nav.Link as={Link} to={`${url}/manageproduct`}>
+                                Manage Product
+                            </Nav.Link>
+                            <Button onClick={logOut}>LogOut</Button>
+                        </Nav>
+                    </div>
                 </Col>
                 <Col xs={12} md={10}>
                     <Switch>
                         <Route exact path={path}>
-                            <h3>this is dashboard page</h3>
+                            <div className="dash-board">
+                                <h3>Welcome to Dashboard</h3>
+                            </div>
                         </Route>
                         <Route path={`${path}/pay`}>
                             <Pay></Pay>

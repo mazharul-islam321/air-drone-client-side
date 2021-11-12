@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../../hooks/useAuth";
+import "./PlaceForm.css";
 
 const PlaceForm = (props) => {
     const { name, description, img, price } = props.order;
@@ -27,11 +28,9 @@ const PlaceForm = (props) => {
         reset();
     }, [props, reset, user]);
     return (
-        <div>
-            <h2>
-                this is place form page. herer will show a form for submit order
-            </h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="confirm-form w-75  mx-auto py-3">
+            <h2 className="text-center">Confirm Order</h2>
+            <form onSubmit={handleSubmit(onSubmit)} className="">
                 <input {...register("name")} defaultValue={name} />
                 <input
                     {...register("description")}
@@ -59,7 +58,7 @@ const PlaceForm = (props) => {
                     placeholder="your number"
                     required
                 />
-                <input type="submit" />
+                <input type="submit" className="confirmbutton" />
             </form>
         </div>
     );

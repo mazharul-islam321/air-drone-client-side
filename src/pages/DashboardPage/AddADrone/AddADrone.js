@@ -24,12 +24,11 @@ const AddADrone = () => {
     };
     return (
         <div className="add-services">
-            <h2 className="text-center">this is add a drone page</h2>
-            {/* <h2 >
-                Add New <span>Destination</span>
-            </h2> */}
-
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="w-50 mx-auto for-shadow py-3"
+            >
+                <h2 className="text-center">Add a Drone</h2>
                 <input
                     {...register("name", {
                         required: true,

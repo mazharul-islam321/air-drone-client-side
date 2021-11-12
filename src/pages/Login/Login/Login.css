@@ -1,0 +1,37 @@
+.login-style {
+    background-color: #0a1931;
+}
+.login-input {
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 20px;
+    width: 70%;
+    background-color: #0a1931;
+    border: 2px solid #da0037;
+}
+.login-style h2 {
+    text-align: center;
+    margin: 15px 0;
+    color: #da0037;
+}
+.submit-forms {
+    background-color: #0a1931;
+    border-radius: 20px;
+}
+.submit-forms:hover {
+    background-color: #da0037;
+}
+.google-btn {
+    text-align: center;
+}
+.google-btn button {
+    background-color: #0a1931;
+    color: aliceblue;
+    font-weight: 600;
+    padding: 9px 18px;
+    border: 2px solid #da0037;
+    border-radius: 20px;
+}
+.google-btn button:hover {
+    background-color: #da0037;
+}

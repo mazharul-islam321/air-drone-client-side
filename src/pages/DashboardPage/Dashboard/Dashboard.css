@@ -1,0 +1,8 @@
+.dash-board {
+    height: 565px;
+    background-color: #0a1931;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #da0037;
+}

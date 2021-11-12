@@ -1,5 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import "./AddReview.css";
 
 const AddReview = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -21,9 +22,12 @@ const AddReview = () => {
             });
     };
     return (
-        <div>
-            <h2>this is review page</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="addreview-form">
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="w-50 mx-auto for-shadow py-3"
+            >
+                <h2>Please Give a Review</h2>
                 <input
                     {...register("img")}
                     placeholder="Your img Url"
@@ -41,7 +45,7 @@ const AddReview = () => {
                     placeholder="Please give Rating (0-5)"
                     required
                 />
-                <input type="submit" />
+                <input type="submit" className="confirmbutton" />
             </form>
         </div>
     );

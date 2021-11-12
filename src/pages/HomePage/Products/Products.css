@@ -16,7 +16,7 @@
     background-color: #11325d;
     text-align: center;
     border-radius: 10px;
-    box-shadow: rgba(107, 107, 112, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(107, 107, 112, 0.2) 0px 7px 15px 0px;
 }
 .products-card-style:hover {
     background-color: #0a1931;
