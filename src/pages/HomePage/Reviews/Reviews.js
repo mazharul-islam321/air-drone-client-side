@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import Rating from "react-rating";
+import "./Reviews.css";
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([]);
@@ -16,33 +17,30 @@ const Reviews = () => {
     }, []);
     // console.log(reviews);
     return (
-        <div>
-            <h2>this is review section</h2>
+        <div className="reviews-style">
+            <h2 className="text-center">Client Reviews</h2>
             <Container>
                 <Row xs={1} md={2} lg={3} className="g-4">
                     {reviews.map((review) => (
                         <Col key={review?._id}>
-                            <Card className="card-style">
-                                <Card.Img
-                                    variant="top"
-                                    src={review?.img}
-                                    className="card-img"
-                                />
+                            <Card className="reviews-card-style">
+                                <span>
+                                    <img src={review?.img} alt="" />
+                                    <Rating
+                                        className="ms-3 icon-color"
+                                        initialRating={review?.rating}
+                                        emptySymbol="far fa-star"
+                                        fullSymbol="fas fa-star"
+                                        readonly
+                                    ></Rating>
+                                </span>
                                 <Card.Body>
-                                    <Card.Title className="card-title">
+                                    <Card.Title className="review-card-title">
                                         {review?.name}
                                     </Card.Title>
-                                    <Card.Text className="card-para">
+                                    <Card.Text className="review-card-para">
                                         {review?.review?.slice(0, 80)}...
                                     </Card.Text>
-                                    <div>
-                                        <Rating
-                                            initialRating={review?.rating}
-                                            emptySymbol="far fa-star"
-                                            fullSymbol="fas fa-star"
-                                            readonly
-                                        ></Rating>
-                                    </div>
                                 </Card.Body>
                             </Card>
                         </Col>

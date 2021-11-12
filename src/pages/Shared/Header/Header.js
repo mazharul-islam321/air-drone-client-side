@@ -7,8 +7,15 @@ import "./Header.css";
 const Header = () => {
     const { user, logOut } = useAuth();
     return (
-        <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <>
+            <Navbar
+                className="header-style py-3"
+                collapseOnSelect
+                expand="lg"
+                bg="dark"
+                variant="dark"
+                sticky="top"
+            >
                 <Container>
                     <Navbar.Brand as={Link} to="/">
                         AIR DRONE
@@ -66,7 +73,7 @@ const Header = () => {
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        </div>
+        </>
     );
 };
 

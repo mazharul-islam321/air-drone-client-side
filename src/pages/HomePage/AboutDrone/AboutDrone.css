@@ -1,0 +1,31 @@
+.about-deone {
+    background-color: #d0e9fc;
+    padding: 100px 0;
+}
+.drone-info {
+    padding-left: 15px;
+}
+.drone-info h1 {
+    font-weight: 700;
+}
+.drone-info p {
+    margin: 20px 0;
+}
+.drone-info h3 {
+    font-weight: 600;
+}
+.drone-info button {
+    margin: 15px 0;
+    color: #fffffe;
+    background-color: #da0037;
+    padding: 8px 20px;
+    border: 2px solid #da0037;
+    border-radius: 10px;
+    font-weight: 500;
+}
+.drone-info button:hover {
+    background-color: #d0e9fc;
+    border: 2px solid #da0037;
+    color: black;
+    font-weight: 700;
+}

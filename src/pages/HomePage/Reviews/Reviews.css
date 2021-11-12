@@ -1,0 +1,33 @@
+.reviews-style {
+    background-color: #0a1931;
+    padding: 40px 0;
+}
+.reviews-style h2 {
+    color: #da0037;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+.reviews-card-style {
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.reviews-card-style:hover {
+    border: 2px solid #da0037;
+}
+.reviews-card-style img {
+    margin: 10px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+.icon-color {
+    color: #da0037;
+}
+.review-card-title {
+    color: #d8e3e7;
+}
+.review-card-para {
+    color: #94b5c0;
+}
