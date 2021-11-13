@@ -52,10 +52,10 @@ const ManageProducts = () => {
                                         {drone.name}
                                     </Card.Title>
                                     <Card.Text className="products-card-para">
-                                        {drone.description}...
+                                        {drone.description?.slice(0, 170)}...
                                     </Card.Text>
                                     <Card.Text className="products-card-para">
-                                        ${drone.price}
+                                        Price: ${drone.price}
                                     </Card.Text>
 
                                     <button

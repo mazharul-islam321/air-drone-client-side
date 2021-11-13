@@ -69,17 +69,17 @@ const ManageAllOrder = () => {
                                 />
                                 <Card.Body>
                                     <Card.Title className="products-card-title">
-                                        {order?.userName}
+                                        User-Name: {order?.userName}
                                     </Card.Title>
                                     <h6 className="products-card-title">
                                         Drone: {order?.name}
                                     </h6>
                                     <Card.Text className="products-card-para">
-                                        {order?.description}
+                                        {order?.description?.slice(0, 140)}
                                         ...
                                     </Card.Text>
                                     <p className="products-card-para">
-                                        ${order?.price}
+                                        Price: ${order?.price}
                                     </p>
                                     <p className="products-card-para">
                                         status: {order?.status}

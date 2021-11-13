@@ -34,10 +34,10 @@ const Header = () => {
                                     Dashboard
                                 </Nav.Link>
                             )}
-                            <Nav.Link as={Link} to="#">
+                            <Nav.Link as={Link} to="/about">
                                 About
                             </Nav.Link>
-                            <Nav.Link as={Link} to="#">
+                            <Nav.Link as={Link} to="/contact">
                                 Contact
                             </Nav.Link>
                         </Nav>

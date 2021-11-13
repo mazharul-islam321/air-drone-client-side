@@ -22,7 +22,7 @@ const Products = () => {
             <h1 className="text-center">Your Favourite Drone</h1>
             <Container>
                 <Row xs={1} md={2} lg={3} className="g-4">
-                    {drones.map((drone) => (
+                    {drones.slice(0, 6).map((drone) => (
                         <Col key={drone._id}>
                             <Card className="products-card-style">
                                 <Card.Img
@@ -35,7 +35,7 @@ const Products = () => {
                                         {drone.name}
                                     </Card.Title>
                                     <Card.Text className="products-card-para">
-                                        {drone.description.slice(0, 80)}...
+                                        {drone.description?.slice(0, 70)}...
                                     </Card.Text>
                                     <Card.Text className="products-card-para">
                                         ${drone.price}

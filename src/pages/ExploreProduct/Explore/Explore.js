@@ -34,14 +34,14 @@ const Explore = () => {
                                         {drone.name}
                                     </Card.Title>
                                     <Card.Text className="products-card-para">
-                                        {drone.description.slice(0, 80)}...
+                                        {drone.description?.slice(0, 70)}...
                                     </Card.Text>
                                     <Card.Text className="products-card-para">
                                         ${drone.price}
                                     </Card.Text>
                                     <Link to={`/placeorder/${drone._id}`}>
                                         <button className="products-card-button">
-                                            Book Now
+                                            Order Now
                                         </button>
                                     </Link>
                                 </Card.Body>

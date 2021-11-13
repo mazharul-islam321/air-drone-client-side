@@ -8,6 +8,8 @@ import Register from "./pages/Login/Register/Register";
 import Dashboard from "./pages/DashboardPage/Dashboard/Dashboard";
 import ExploreProduct from "./pages/ExploreProduct/ExploreProduct/ExploreProduct";
 import PlaceOrder from "./pages/HomePage/PlaceOrderPage/PlaceOrder/PlaceOrder";
+import About from "./pages/About/About";
+import Contact from "./pages/Contact/Contact";
 
 function App() {
     return (
@@ -22,6 +24,12 @@ function App() {
                     </Route>
                     <Route path="/explore">
                         <ExploreProduct></ExploreProduct>
+                    </Route>
+                    <Route path="/about">
+                        <About></About>
+                    </Route>
+                    <Route path="/contact">
+                        <Contact></Contact>
                     </Route>
                     <Route path="/placeorder/:id">
                         <PlaceOrder></PlaceOrder>

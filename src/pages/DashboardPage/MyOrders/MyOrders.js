@@ -54,12 +54,11 @@ const MyOrders = () => {
                                         {order?.name}
                                     </h4>
                                     <p>
-                                        {order?.description}
-                                        ...
+                                        {order?.description?.slice(0, 100)}...
                                     </p>
-                                    <p>{order?.address}</p>
-                                    <p>{order?.phone}</p>
-                                    <p>${order?.price}</p>
+                                    <p>Addres: {order?.address}</p>
+                                    <p>NUmber: {order?.phone}</p>
+                                    <p>Price: ${order?.price}</p>
                                     <p>status: {order?.status}</p>
                                     <button
                                         className="products-card-button"

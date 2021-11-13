@@ -1,0 +1,19 @@
+.not-found {
+    background-image: url(https://i.ibb.co/RSD4JBq/000-404.png);
+    background-size: 100% 100%;
+    height: 625px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.notfound-btn {
+    padding: 9px 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background-color: black;
+    color: aliceblue;
+    border: 2px solid #da0037;
+}
+.notfound-btn:hover {
+    background-color: #da0037;
+}
