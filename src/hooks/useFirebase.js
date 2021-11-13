@@ -14,6 +14,7 @@ initializeAuthentication();
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [error, setError] = useState("");
+    const [logInError, setLogInError] = useState("");
     const [loading, setLoading] = useState(true);
     const [admin, setAdmin] = useState(false);
     const auth = getAuth();
@@ -29,12 +30,12 @@ const useFirebase = () => {
                 // save user to the database
                 saveUser(user.email, user.displayName, "PUT");
 
-                setError("");
-                const destination = location?.state?.from || "/";
+                setLogInError("");
+                const destination = location?.state?.from || "/dashboard";
                 history.replace(destination);
             })
             .catch((error) => {
-                setError(error.message);
+                setLogInError(error.message);
             })
             .finally(() => setLoading(false));
     };
@@ -70,12 +71,12 @@ const useFirebase = () => {
         setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((results) => {
-                const redirect_uri = location?.state?.from || "/";
+                const redirect_uri = location?.state?.from || "/dashboard";
                 history.push(redirect_uri);
-                setError("");
+                setLogInError("");
             })
             .catch((error) => {
-                setError(error.message);
+                setLogInError(error.message);
             })
             .finally(() => setLoading(false));
     };
@@ -101,11 +102,12 @@ const useFirebase = () => {
     }, [user.email]);
 
     // user logout
-    const logOut = () => {
+    const logOut = (history) => {
         setLoading(true);
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
+                history.replace("/");
             })
             .catch((error) => {
                 // An error happened.
@@ -125,6 +127,7 @@ const useFirebase = () => {
     };
     return {
         user,
+        setLoading,
         admin,
         handleUserRegister,
         signInWithGoogle,
@@ -132,6 +135,7 @@ const useFirebase = () => {
         handleUserLogin,
         loading,
         error,
+        logInError,
     };
 };
 

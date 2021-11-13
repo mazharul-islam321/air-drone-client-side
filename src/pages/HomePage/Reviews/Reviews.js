@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import Rating from "react-rating";
+import useAuth from "../../../hooks/useAuth";
 import "./Reviews.css";
 
 const Reviews = () => {
+    const { loading, setLoading } = useAuth();
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
@@ -13,9 +15,17 @@ const Reviews = () => {
             .then((data) => {
                 // setIsLoading(false);
                 setReviews(data);
+                setLoading(false);
             });
-    }, []);
+    }, [setLoading]);
     // console.log(reviews);
+    if (loading) {
+        return (
+            <div className="text-center spiner-style">
+                <Spinner animation="grow" variant="danger" />
+            </div>
+        );
+    }
     return (
         <div className="reviews-style">
             <h2 className="text-center">Clients Review</h2>

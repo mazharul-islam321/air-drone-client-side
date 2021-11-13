@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 import "./Products.css";
 
 const Products = () => {
-    // const { setIsLoading } = useAuth();
+    const { loading, setLoading } = useAuth();
     const [drones, setDrones] = useState([]);
 
     useEffect(() => {
@@ -12,10 +13,17 @@ const Products = () => {
         fetch(uri)
             .then((res) => res.json())
             .then((data) => {
-                // setIsLoading(false);
                 setDrones(data);
+                setLoading(false);
             });
-    }, []);
+    }, [setLoading]);
+    if (loading) {
+        return (
+            <div className="text-center spiner-style">
+                <Spinner animation="grow" variant="danger" />
+            </div>
+        );
+    }
     // setIsLoading
     return (
         <div className="products-style">

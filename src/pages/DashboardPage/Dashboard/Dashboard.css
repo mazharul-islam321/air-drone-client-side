@@ -1,3 +1,10 @@
+.headerColor {
+    background-color: #0a1931;
+    color: #d8e3e7;
+}
+.headerColor h1 {
+    padding: 10px 0;
+}
 .dash-board {
     height: 565px;
     background-color: #0a1931;
@@ -5,4 +12,25 @@
     justify-content: center;
     align-items: center;
     color: #da0037;
+}
+.dash-nav {
+    background-color: #0a1931;
+    padding: 10px 0;
+}
+.dashboad-style {
+    width: 100%;
+    color: #d8e3e7;
+}
+.dashboad-style:hover {
+    color: #da0037;
+}
+.dash-btn {
+    padding: 5px 0;
+    width: 100%;
+    color: #d8e3e7;
+    background-color: #0a1931;
+    border: 2px solid #da0037;
+}
+.dash-btn:hover {
+    background-color: #da0037;
 }

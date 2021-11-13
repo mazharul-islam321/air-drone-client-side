@@ -10,6 +10,7 @@ import ExploreProduct from "./pages/ExploreProduct/ExploreProduct/ExploreProduct
 import PlaceOrder from "./pages/HomePage/PlaceOrderPage/PlaceOrder/PlaceOrder";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
+import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 
 function App() {
     return (
@@ -31,9 +32,9 @@ function App() {
                     <Route path="/contact">
                         <Contact></Contact>
                     </Route>
-                    <Route path="/placeorder/:id">
+                    <PrivateRoute path="/placeorder/:id">
                         <PlaceOrder></PlaceOrder>
-                    </Route>
+                    </PrivateRoute>
                     <Route path="/login">
                         <Login></Login>
                     </Route>

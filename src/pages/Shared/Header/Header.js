@@ -1,15 +1,19 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import "./Header.css";
 
 const Header = () => {
+    const history = useHistory();
     const { user, logOut } = useAuth();
+    const handleLogOut = () => {
+        logOut(history);
+    };
     return (
         <>
             <Navbar
-                className="header-style py-3"
+                className="header-style"
                 collapseOnSelect
                 expand="lg"
                 bg="dark"
@@ -18,7 +22,14 @@ const Header = () => {
             >
                 <Container>
                     <Navbar.Brand as={Link} to="/">
-                        AIR DRONE
+                        <img
+                            className="headerimg"
+                            src="https://i.ibb.co/8dm62W0/mockup2-4x.jpg"
+                            alt=""
+                        />
+                        <i className="fs-3 fw-bold ">
+                            AIR <span className="word-color">DRONE</span>
+                        </i>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
@@ -47,7 +58,10 @@ const Header = () => {
                                     <span className="username">
                                         {user?.displayName}
                                     </span>
-                                    <span className=" logout" onClick={logOut}>
+                                    <span
+                                        className=" logout"
+                                        onClick={handleLogOut}
+                                    >
                                         Log Out
                                     </span>
                                 </span>

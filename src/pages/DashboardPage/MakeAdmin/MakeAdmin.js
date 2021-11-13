@@ -16,11 +16,11 @@ const MakeAdmin = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.modifiedCount) {
-                    console.log(data);
-                    // setSuccess(true);
+                    alert("admin created successfully");
+                    reset();
+                    // console.log(data);
                 }
             });
-        reset();
     };
     return (
         <div className="admin-form">

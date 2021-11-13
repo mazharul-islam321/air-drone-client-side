@@ -1,10 +1,10 @@
 import React from "react";
-import { Col, Nav, Row, Button } from "react-bootstrap";
+import { Col, Nav, Row } from "react-bootstrap";
 import {
     Switch,
     Route,
     Link,
-    // useParams,
+    useHistory,
     useRouteMatch,
 } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
@@ -15,48 +15,100 @@ import ManageAllOrder from "../ManageAllOrder/ManageAllOrder";
 import ManageProducts from "../ManageProducts/ManageProducts";
 import MyOrders from "../MyOrders/MyOrders";
 import Pay from "../Pay/Pay";
+import NotFound from "../../NotFound/NotFound";
 import "./Dashboard.css";
+import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 
 const Dashboard = () => {
+    const history = useHistory();
     let { path, url } = useRouteMatch();
-    const { logOut } = useAuth();
+    const { admin, logOut } = useAuth();
+    const handleLogOut = () => {
+        logOut(history);
+    };
     return (
         <div>
-            <div className="bg-danger">
+            <div className="headerColor">
                 <h1 className="text-center">DASHBOARD</h1>
             </div>
             <Row className="w-100">
                 <Col xs={12} md={2}>
                     <div className="bg-light shadow">
-                        <Nav>
-                            <Nav.Link as={Link} to="/">
-                                Home Page
+                        <Nav className="dash-nav">
+                            <Nav.Link
+                                as={Link}
+                                to="/"
+                                className="dashboad-style"
+                            >
+                                <h4>Home Page</h4>
                             </Nav.Link>
-                            <Nav.Link as={Link} to={`${url}`}>
+                            <Nav.Link
+                                as={Link}
+                                to={`${url}`}
+                                className="dashboad-style"
+                            >
                                 Dashboard
                             </Nav.Link>
-                            <Nav.Link as={Link} to={`${url}/pay`}>
-                                Payment Method
-                            </Nav.Link>
-                            <Nav.Link as={Link} to={`${url}/myorders`}>
-                                My Orders
-                            </Nav.Link>
-                            <Nav.Link as={Link} to={`${url}/review`}>
-                                Add Review
-                            </Nav.Link>
-                            <Nav.Link as={Link} to={`${url}/manageorder`}>
-                                Manage All Orders
-                            </Nav.Link>
-                            <Nav.Link as={Link} to={`${url}/addproduct`}>
-                                Add A Drone
-                            </Nav.Link>
-                            <Nav.Link as={Link} to={`${url}/makeadmin`}>
-                                Make Admin
-                            </Nav.Link>
-                            <Nav.Link as={Link} to={`${url}/manageproduct`}>
-                                Manage Product
-                            </Nav.Link>
-                            <Button onClick={logOut}>LogOut</Button>
+                            {!admin && (
+                                <>
+                                    <Nav.Link
+                                        as={Link}
+                                        to={`${url}/pay`}
+                                        className="dashboad-style"
+                                    >
+                                        Payment Method
+                                    </Nav.Link>
+                                    <Nav.Link
+                                        as={Link}
+                                        to={`${url}/myorders`}
+                                        className="dashboad-style"
+                                    >
+                                        My Orders
+                                    </Nav.Link>
+                                    <Nav.Link
+                                        as={Link}
+                                        to={`${url}/review`}
+                                        className="dashboad-style"
+                                    >
+                                        Add Review
+                                    </Nav.Link>
+                                </>
+                            )}
+                            {admin && (
+                                <>
+                                    <Nav.Link
+                                        as={Link}
+                                        to={`${url}/manageorder`}
+                                        className="dashboad-style"
+                                    >
+                                        Manage All Orders
+                                    </Nav.Link>
+                                    <Nav.Link
+                                        as={Link}
+                                        to={`${url}/addproduct`}
+                                        className="dashboad-style"
+                                    >
+                                        Add A Drone
+                                    </Nav.Link>
+                                    <Nav.Link
+                                        as={Link}
+                                        to={`${url}/makeadmin`}
+                                        className="dashboad-style"
+                                    >
+                                        Make Admin
+                                    </Nav.Link>
+                                    <Nav.Link
+                                        as={Link}
+                                        to={`${url}/manageproduct`}
+                                        className="dashboad-style"
+                                    >
+                                        Manage Product
+                                    </Nav.Link>
+                                </>
+                            )}
+                            <button onClick={handleLogOut} className="dash-btn">
+                                LogOut
+                            </button>
                         </Nav>
                     </div>
                 </Col>
@@ -76,17 +128,20 @@ const Dashboard = () => {
                         <Route path={`${path}/review`}>
                             <AddReview></AddReview>
                         </Route>
-                        <Route path={`${path}/manageorder`}>
+                        <AdminRoute path={`${path}/manageorder`}>
                             <ManageAllOrder></ManageAllOrder>
-                        </Route>
-                        <Route path={`${path}/addproduct`}>
+                        </AdminRoute>
+                        <AdminRoute path={`${path}/addproduct`}>
                             <AddADrone></AddADrone>
-                        </Route>
-                        <Route path={`${path}/makeadmin`}>
+                        </AdminRoute>
+                        <AdminRoute path={`${path}/makeadmin`}>
                             <MakeAdmin></MakeAdmin>
-                        </Route>
-                        <Route path={`${path}/manageproduct`}>
+                        </AdminRoute>
+                        <AdminRoute path={`${path}/manageproduct`}>
                             <ManageProducts></ManageProducts>
+                        </AdminRoute>
+                        <Route path={`${path}/*`}>
+                            <NotFound></NotFound>
                         </Route>
                     </Switch>
                 </Col>

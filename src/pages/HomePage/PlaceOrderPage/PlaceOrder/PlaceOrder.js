@@ -26,7 +26,11 @@ const PlaceOrder = () => {
                 </h2>
                 <Container>
                     <Row>
-                        <Col md={6} xs={12} className="text-center left-div">
+                        <Col
+                            md={6}
+                            xs={12}
+                            className="text-center left-div my-3"
+                        >
                             <img
                                 src={order?.img}
                                 alt=""
@@ -42,7 +46,7 @@ const PlaceOrder = () => {
                                 price: ${order?.price}
                             </p>
                         </Col>
-                        <Col md={6} xs={12}>
+                        <Col md={6} xs={12} className="my-3">
                             <PlaceForm order={order}></PlaceForm>
                         </Col>
                     </Row>

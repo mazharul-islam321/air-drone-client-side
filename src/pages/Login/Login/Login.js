@@ -3,12 +3,13 @@ import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import useAuth from "../../../hooks/useAuth";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Alert, Col, Container, Form, Row, Spinner } from "react-bootstrap";
 import Header from "../../Shared/Header/Header";
 import "./Login.css";
 
 const Login = () => {
-    const { handleUserLogin, signInWithGoogle } = useAuth();
+    const { logInError, loading, handleUserLogin, signInWithGoogle } =
+        useAuth();
     const [loginData, setLoginData] = useState({});
 
     const location = useLocation();
@@ -37,73 +38,89 @@ const Login = () => {
                     <div className="box-shadows">
                         <Row>
                             <Col xs={12} md={6}>
-                                <Form
-                                    className="mx-auto pt-4 pb-4 w-75"
-                                    onSubmit={handleLoginSubmit}
-                                >
-                                    <h2 className="text-center fw-bold">
-                                        LOG IN
-                                    </h2>
-                                    <Form.Group
-                                        className="mb-3"
-                                        controlId="formBasicEmail"
-                                    >
-                                        <Form.Control
-                                            type="email"
-                                            name="email"
-                                            onBlur={handleOnBlur}
-                                            placeholder="Your Email"
-                                            required
-                                            className="login-input"
-                                        />
-                                    </Form.Group>
-                                    <Form.Group
-                                        className="mb-3"
-                                        controlId="BasicPassword"
-                                    >
-                                        <Form.Control
-                                            type="password"
-                                            name="password"
-                                            onBlur={handleOnBlur}
-                                            placeholder="Your Pass"
-                                            required
-                                            className="login-input"
-                                        />
-                                    </Form.Group>
-                                    {/* <span>{logInError}</span> */}
-                                    <div className="d-grid gap-2 my-4 login-input">
-                                        <Button
-                                            variant="secondary"
-                                            type="submit"
-                                            className="submit-forms"
+                                {!loading && (
+                                    <>
+                                        <Form
+                                            className="mx-auto pt-4 pb-4 w-75"
+                                            onSubmit={handleLoginSubmit}
                                         >
-                                            Sign In
-                                        </Button>
-                                    </div>
-                                    <p className="text-center">
-                                        New User?
-                                        <Link
-                                            to="/register"
-                                            style={{ textDecoration: "none" }}
-                                        >
-                                            &nbsp;Please Register
-                                        </Link>
-                                    </p>
-                                </Form>
-                                <div className="google-btn">
-                                    <button onClick={handleGoogleSignIn}>
-                                        Google Log in
-                                    </button>
-                                </div>
+                                            <h2 className="text-center fw-bold">
+                                                LOG IN
+                                            </h2>
+                                            <Form.Group
+                                                className="mb-3"
+                                                controlId="formBasicEmail"
+                                            >
+                                                <Form.Control
+                                                    type="email"
+                                                    name="email"
+                                                    onBlur={handleOnBlur}
+                                                    placeholder="Your Email"
+                                                    required
+                                                    className="login-input"
+                                                />
+                                            </Form.Group>
+                                            <Form.Group
+                                                className="mb-3"
+                                                controlId="BasicPassword"
+                                            >
+                                                <Form.Control
+                                                    type="password"
+                                                    name="password"
+                                                    onBlur={handleOnBlur}
+                                                    placeholder="Your Pass"
+                                                    required
+                                                    className="login-input"
+                                                />
+                                            </Form.Group>
+                                            {/* <span>{logInError}</span> */}
+                                            <div className="d-grid gap-2 my-4 login-input">
+                                                <Button
+                                                    variant="secondary"
+                                                    type="submit"
+                                                    className="submit-forms"
+                                                >
+                                                    Sign In
+                                                </Button>
+                                            </div>
+                                            <p className="text-center">
+                                                New User?
+                                                <Link
+                                                    to="/register"
+                                                    style={{
+                                                        textDecoration: "none",
+                                                    }}
+                                                >
+                                                    &nbsp;Please Register
+                                                </Link>
+                                            </p>
+                                        </Form>
+                                        <div className="google-btn">
+                                            <button
+                                                onClick={handleGoogleSignIn}
+                                            >
+                                                Google Log in
+                                            </button>
+                                        </div>
+                                    </>
+                                )}
 
-                                {/* <NavLink
-                            style={{ textDecoration: "none" }}
-                            to="/register"
-                        >
-                            <Button variant="text">
-                                New User? Please Register
-                            </Button>
-                        </NavLink> */}
+                                {loading && (
+                                    <div className="text-center">
+                                        <Spinner
+                                            animation="border"
+                                            variant="info"
+                                        />
+                                    </div>
+                                )}
+                                {logInError && (
+                                    <Alert
+                                        variant="danger"
+                                        className="w-75 mx-auto"
+                                    >
+                                        {logInError}
+                                    </Alert>
+                                )}
                             </Col>
                             <Col xs={12} md={6}>
                                 <h2 className="fw-bold">AIR DRONE</h2>

@@ -29,9 +29,9 @@ const AboutDrone = () => {
                                 flight plans in their embedded systems, working
                                 in conjunction with onboard sensors and GPS.
                             </p>
-                            <h3>Mobile Device Supported</h3>
-                            <h3>Easy integrative control</h3>
-                            <h3>Customized Commands</h3>
+                            <h3>- Mobile Device Supported.</h3>
+                            <h3>- Easy integrative control.</h3>
+                            <h3>- Customized Commands.</h3>
                             <button>Learn More...</button>
                         </div>
                     </Col>
