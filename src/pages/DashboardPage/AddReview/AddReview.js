@@ -5,7 +5,7 @@ import "./AddReview.css";
 const AddReview = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
-        const uri = "http://localhost:4000/reviews";
+        const uri = "https://salty-shore-04122.herokuapp.com/reviews";
         fetch(uri, {
             method: "POST",
             headers: {

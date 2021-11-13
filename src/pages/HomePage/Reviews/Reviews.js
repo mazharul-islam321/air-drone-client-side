@@ -9,11 +9,10 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        const uri = "http://localhost:4000/reviews";
+        const uri = "https://salty-shore-04122.herokuapp.com/reviews";
         fetch(uri)
             .then((res) => res.json())
             .then((data) => {
-                // setIsLoading(false);
                 setReviews(data);
                 setLoading(false);
             });

@@ -11,7 +11,7 @@ const PlaceOrder = () => {
     // console.log(id);
     const [order, setOrder] = useState({});
     useEffect(() => {
-        const uri = `http://localhost:4000/products/${id}`;
+        const uri = `https://salty-shore-04122.herokuapp.com/products/${id}`;
         fetch(uri)
             .then((res) => res.json())
             .then((data) => setOrder(data));

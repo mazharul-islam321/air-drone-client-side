@@ -7,7 +7,7 @@ const Explore = () => {
     const [drones, setDrones] = useState([]);
 
     useEffect(() => {
-        const uri = "http://localhost:4000/products";
+        const uri = "https://salty-shore-04122.herokuapp.com/products";
         fetch(uri)
             .then((res) => res.json())
             .then((data) => {

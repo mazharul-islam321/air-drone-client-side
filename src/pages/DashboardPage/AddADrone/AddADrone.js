@@ -6,7 +6,7 @@ const AddADrone = () => {
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (data) => {
         // console.log(data);
-        const uri = `http://localhost:4000/products`;
+        const uri = `https://salty-shore-04122.herokuapp.com/products`;
         fetch(uri, {
             method: "POST",
             headers: {

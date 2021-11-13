@@ -4,7 +4,7 @@ import { Card, Col, Container, Row } from "react-bootstrap";
 const ManageProducts = () => {
     const [drones, setDrones] = useState([]);
     useEffect(() => {
-        const uri = "http://localhost:4000/products";
+        const uri = "https://salty-shore-04122.herokuapp.com/products";
         fetch(uri)
             .then((res) => res.json())
             .then((data) => {
@@ -19,7 +19,7 @@ const ManageProducts = () => {
             "are you sure, you want to delete your product!!!"
         );
         if (proceed) {
-            fetch(`http://localhost:4000/products/${id}`, {
+            fetch(`https://salty-shore-04122.herokuapp.com/products/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

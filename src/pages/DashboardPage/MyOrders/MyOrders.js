@@ -8,7 +8,7 @@ const MyOrders = () => {
     const { user } = useAuth();
     const [myOrder, setMyOrder] = useState([]);
     useEffect(() => {
-        const uri = `http://localhost:4000/orders/${user?.email}`;
+        const uri = `https://salty-shore-04122.herokuapp.com/orders/${user?.email}`;
         fetch(uri)
             .then((res) => res.json())
             .then((data) => setMyOrder(data));
@@ -19,7 +19,7 @@ const MyOrders = () => {
             "are you sure, you want to Cancle your Order!!!"
         );
         if (proceed) {
-            fetch(`http://localhost:4000/orders/${id}`, {
+            fetch(`https://salty-shore-04122.herokuapp.com/orders/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())
