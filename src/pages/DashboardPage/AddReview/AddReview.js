@@ -16,7 +16,7 @@ const AddReview = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.insertedId) {
-                    alert("added review successfull");
+                    alert("added review successfully");
                     reset();
                 }
             });

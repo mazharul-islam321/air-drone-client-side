@@ -4,7 +4,10 @@ import "./Banner.css";
 const Banner = () => {
     return (
         <div className="banner-img">
-            <h2>this is banner page</h2>
+            <h1>
+                "Drones overall will be more impactful than I think people
+                recognize, in positive ways to help society."
+            </h1>
         </div>
     );
 };

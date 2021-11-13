@@ -1,14 +1,14 @@
 .header-style {
-    background-image: linear-gradient(#0a1931, #b3b2b1);
+    background-image: linear-gradient(#0a1931, #868685);
 }
 .logout {
     font-size: large;
     font-weight: 600;
     cursor: pointer;
-    color: rgb(145, 142, 142);
+    color: rgb(190, 186, 186);
 }
 .logout:hover {
-    color: rgb(194, 193, 193);
+    color: rgb(236, 234, 234);
 }
 .word-color {
     color: #ff8906;

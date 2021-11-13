@@ -18,7 +18,7 @@ const Reviews = () => {
     // console.log(reviews);
     return (
         <div className="reviews-style">
-            <h2 className="text-center">Client Reviews</h2>
+            <h2 className="text-center">Clients Review</h2>
             <Container>
                 <Row xs={1} md={2} lg={3} className="g-4">
                     {reviews.map((review) => (

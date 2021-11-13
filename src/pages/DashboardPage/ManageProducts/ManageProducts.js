@@ -16,7 +16,7 @@ const ManageProducts = () => {
 
     const handleDelete = (id) => {
         const proceed = window.confirm(
-            "are you sure, you want to Cancle your Order!!!!!!"
+            "are you sure, you want to delete your product!!!"
         );
         if (proceed) {
             fetch(`http://localhost:4000/products/${id}`, {

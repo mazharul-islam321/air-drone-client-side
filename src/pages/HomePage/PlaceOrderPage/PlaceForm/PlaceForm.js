@@ -20,8 +20,9 @@ const PlaceForm = (props) => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.insertedId) {
-                    alert("place booking successfull");
+                    alert("place order successfully");
                 }
+                reset();
             });
     };
     useEffect(() => {

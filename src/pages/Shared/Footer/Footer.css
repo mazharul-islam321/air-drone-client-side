@@ -1,0 +1,45 @@
+.footer-style {
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+}
+.footer-style h1 {
+    color: #fffffe;
+}
+.footer-style h2 {
+    color: #fffffe;
+}
+.footer-style p {
+    color: #94b5c0;
+}
+.quick-link {
+    text-decoration: none;
+    margin: 10px;
+    color: #da0037;
+}
+.footer-style span {
+    color: #94b5c0;
+}
+.footer-input {
+    background-color: black;
+    padding: 8px;
+    border: 2px solid #da0037;
+    border-radius: 20px;
+    text-align: center;
+    margin: 15px;
+}
+.footer-button {
+    background-color: black;
+    color: #fffffe;
+    padding: 10px 15px;
+    border: 2px solid #da0037;
+    border-radius: 20px;
+}
+.footer-button:hover {
+    background-color: #da0037;
+}
+.footer-icon i {
+    cursor: pointer;
+    font-size: 35px;
+    margin: 8px;
+    color: rgb(81, 34, 252);
+}

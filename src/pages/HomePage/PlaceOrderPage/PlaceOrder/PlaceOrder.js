@@ -32,14 +32,14 @@ const PlaceOrder = () => {
                                 alt=""
                                 className="img-size pt-3"
                             />
-                            <h2 className="products-card-title">
+                            <h2 className="products-card-title my-3">
                                 Name: {order?.name}
                             </h2>
                             <p className="products-card-para">
                                 {order?.description}
                             </p>
                             <p className="products-card-para">
-                                price: {order?.price}
+                                price: ${order?.price}
                             </p>
                         </Col>
                         <Col md={6} xs={12}>
